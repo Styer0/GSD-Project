@@ -38,12 +38,31 @@ namespace GSD {
 	protected:
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::Panel^ panel3;
-	private: System::Windows::Forms::TextBox^ password;
-	private: System::Windows::Forms::TextBox^ username;
+	private: System::Windows::Forms::TextBox^ text_email;
+
+	private: System::Windows::Forms::TextBox^ text_name;
+
+
+
+
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label_name;
+	private: System::Windows::Forms::Label^ label_email;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Panel^ panel7;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label_user;
-	private: System::Windows::Forms::Label^ label_pass;
+	private: System::Windows::Forms::Panel^ panel5;
+	private: System::Windows::Forms::Panel^ panel6;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Button^ button_create;
+
+
+
+
 
 	private:
 		/// <summary>
@@ -62,12 +81,22 @@ namespace GSD {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->password = (gcnew System::Windows::Forms::TextBox());
+			this->text_email = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->username = (gcnew System::Windows::Forms::TextBox());
+			this->text_name = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label_name = (gcnew System::Windows::Forms::Label());
+			this->label_email = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label_user = (gcnew System::Windows::Forms::Label());
-			this->label_pass = (gcnew System::Windows::Forms::Label());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->panel6 = (gcnew System::Windows::Forms::Panel());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->panel7 = (gcnew System::Windows::Forms::Panel());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->button_create = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -75,13 +104,23 @@ namespace GSD {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
 			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
-			this->panel1->Controls->Add(this->label_pass);
+			this->panel1->Controls->Add(this->button_create);
+			this->panel1->Controls->Add(this->label4);
+			this->panel1->Controls->Add(this->panel7);
+			this->panel1->Controls->Add(this->textBox3);
+			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label_user);
+			this->panel1->Controls->Add(this->panel5);
+			this->panel1->Controls->Add(this->panel6);
+			this->panel1->Controls->Add(this->textBox1);
+			this->panel1->Controls->Add(this->textBox2);
+			this->panel1->Controls->Add(this->label_email);
+			this->panel1->Controls->Add(this->label_name);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->panel4);
 			this->panel1->Controls->Add(this->panel3);
-			this->panel1->Controls->Add(this->password);
-			this->panel1->Controls->Add(this->username);
+			this->panel1->Controls->Add(this->text_email);
+			this->panel1->Controls->Add(this->text_name);
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->panel1->Location = System::Drawing::Point(422, 80);
@@ -92,7 +131,7 @@ namespace GSD {
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::Color::White;
-			this->panel4->Location = System::Drawing::Point(45, 335);
+			this->panel4->Location = System::Drawing::Point(45, 308);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(255, 2);
 			this->panel4->TabIndex = 10;
@@ -100,26 +139,25 @@ namespace GSD {
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::White;
-			this->panel3->Location = System::Drawing::Point(45, 267);
+			this->panel3->Location = System::Drawing::Point(45, 240);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(255, 2);
 			this->panel3->TabIndex = 9;
 			// 
-			// password
+			// text_email
 			// 
-			this->password->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->password->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			this->text_email->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->text_email->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->password->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->password->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->password->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->text_email->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->text_email->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->text_email->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password->ForeColor = System::Drawing::SystemColors::Window;
-			this->password->Location = System::Drawing::Point(45, 313);
-			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(255, 22);
-			this->password->TabIndex = 5;
-			this->password->UseSystemPasswordChar = true;
+			this->text_email->ForeColor = System::Drawing::SystemColors::Window;
+			this->text_email->Location = System::Drawing::Point(45, 286);
+			this->text_email->Name = L"text_email";
+			this->text_email->Size = System::Drawing::Size(255, 22);
+			this->text_email->TabIndex = 5;
 			// 
 			// panel2
 			// 
@@ -131,20 +169,20 @@ namespace GSD {
 			this->panel2->Size = System::Drawing::Size(125, 122);
 			this->panel2->TabIndex = 1;
 			// 
-			// username
+			// text_name
 			// 
-			this->username->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->username->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			this->text_name->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->text_name->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->username->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->username->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->username->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->text_name->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->text_name->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->text_name->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username->ForeColor = System::Drawing::SystemColors::Window;
-			this->username->Location = System::Drawing::Point(45, 245);
-			this->username->Name = L"username";
-			this->username->Size = System::Drawing::Size(255, 22);
-			this->username->TabIndex = 0;
+			this->text_name->ForeColor = System::Drawing::SystemColors::Window;
+			this->text_name->Location = System::Drawing::Point(45, 218);
+			this->text_name->Name = L"text_name";
+			this->text_name->Size = System::Drawing::Size(255, 22);
+			this->text_name->TabIndex = 0;
 			// 
 			// label1
 			// 
@@ -152,11 +190,47 @@ namespace GSD {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(100, 154);
+			this->label1->Location = System::Drawing::Point(100, 140);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(144, 47);
 			this->label1->TabIndex = 11;
 			this->label1->Text = L"Register";
+			// 
+			// label_name
+			// 
+			this->label_name->AutoSize = true;
+			this->label_name->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_name->ForeColor = System::Drawing::Color::White;
+			this->label_name->Location = System::Drawing::Point(41, 194);
+			this->label_name->Name = L"label_name";
+			this->label_name->Size = System::Drawing::Size(52, 21);
+			this->label_name->TabIndex = 12;
+			this->label_name->Text = L"Name";
+			// 
+			// label_email
+			// 
+			this->label_email->AutoSize = true;
+			this->label_email->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_email->ForeColor = System::Drawing::Color::White;
+			this->label_email->Location = System::Drawing::Point(41, 262);
+			this->label_email->Name = L"label_email";
+			this->label_email->Size = System::Drawing::Size(48, 21);
+			this->label_email->TabIndex = 13;
+			this->label_email->Text = L"Email";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(41, 398);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(76, 21);
+			this->label2->TabIndex = 19;
+			this->label2->Text = L"Password";
 			// 
 			// label_user
 			// 
@@ -164,23 +238,105 @@ namespace GSD {
 			this->label_user->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_user->ForeColor = System::Drawing::Color::White;
-			this->label_user->Location = System::Drawing::Point(41, 221);
+			this->label_user->Location = System::Drawing::Point(41, 330);
 			this->label_user->Name = L"label_user";
 			this->label_user->Size = System::Drawing::Size(81, 21);
-			this->label_user->TabIndex = 12;
+			this->label_user->TabIndex = 18;
 			this->label_user->Text = L"Username";
 			// 
-			// label_pass
+			// panel5
 			// 
-			this->label_pass->AutoSize = true;
-			this->label_pass->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->panel5->BackColor = System::Drawing::Color::White;
+			this->panel5->Location = System::Drawing::Point(45, 444);
+			this->panel5->Name = L"panel5";
+			this->panel5->Size = System::Drawing::Size(255, 2);
+			this->panel5->TabIndex = 17;
+			// 
+			// panel6
+			// 
+			this->panel6->BackColor = System::Drawing::Color::White;
+			this->panel6->Location = System::Drawing::Point(45, 376);
+			this->panel6->Name = L"panel6";
+			this->panel6->Size = System::Drawing::Size(255, 2);
+			this->panel6->TabIndex = 16;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox1->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_pass->ForeColor = System::Drawing::Color::White;
-			this->label_pass->Location = System::Drawing::Point(41, 289);
-			this->label_pass->Name = L"label_pass";
-			this->label_pass->Size = System::Drawing::Size(76, 21);
-			this->label_pass->TabIndex = 13;
-			this->label_pass->Text = L"Password";
+			this->textBox1->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox1->Location = System::Drawing::Point(45, 422);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(255, 22);
+			this->textBox1->TabIndex = 15;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox2->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox2->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox2->Location = System::Drawing::Point(45, 354);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(255, 22);
+			this->textBox2->TabIndex = 14;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(41, 465);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(137, 21);
+			this->label4->TabIndex = 22;
+			this->label4->Text = L"Confirm Password";
+			// 
+			// panel7
+			// 
+			this->panel7->BackColor = System::Drawing::Color::White;
+			this->panel7->Location = System::Drawing::Point(45, 511);
+			this->panel7->Name = L"panel7";
+			this->panel7->Size = System::Drawing::Size(255, 2);
+			this->panel7->TabIndex = 21;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox3->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->textBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox3->ForeColor = System::Drawing::SystemColors::Window;
+			this->textBox3->Location = System::Drawing::Point(45, 489);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(255, 22);
+			this->textBox3->TabIndex = 20;
+			// 
+			// button_create
+			// 
+			this->button_create->BackColor = System::Drawing::Color::White;
+			this->button_create->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_create->ForeColor = System::Drawing::Color::Black;
+			this->button_create->Location = System::Drawing::Point(45, 535);
+			this->button_create->Name = L"button_create";
+			this->button_create->Size = System::Drawing::Size(255, 37);
+			this->button_create->TabIndex = 23;
+			this->button_create->Text = L"Create Account";
+			this->button_create->UseVisualStyleBackColor = false;
 			// 
 			// RegisterForm
 			// 
