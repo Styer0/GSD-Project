@@ -1,4 +1,5 @@
 #pragma once
+#include "User.h"
 
 namespace GSD {
 
@@ -160,10 +161,10 @@ namespace GSD {
 			this->linkLabel1->LinkColor = System::Drawing::Color::LightGray;
 			this->linkLabel1->Location = System::Drawing::Point(202, 406);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(98, 13);
+			this->linkLabel1->Size = System::Drawing::Size(99, 13);
 			this->linkLabel1->TabIndex = 7;
 			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"forgot password\?";
+			this->linkLabel1->Text = L"Forgot Password\?";
 			// 
 			// button_login
 			// 
@@ -214,9 +215,9 @@ namespace GSD {
 			this->label_user->ForeColor = System::Drawing::Color::White;
 			this->label_user->Location = System::Drawing::Point(41, 273);
 			this->label_user->Name = L"label_user";
-			this->label_user->Size = System::Drawing::Size(81, 21);
+			this->label_user->Size = System::Drawing::Size(54, 21);
 			this->label_user->TabIndex = 4;
-			this->label_user->Text = L"Username";
+			this->label_user->Text = L"E-Mail";
 			// 
 			// label1
 			// 
@@ -252,7 +253,7 @@ namespace GSD {
 			this->panel2->BackColor = System::Drawing::Color::Transparent;
 			this->panel2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel2.BackgroundImage")));
 			this->panel2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->panel2->Location = System::Drawing::Point(107, 12);
+			this->panel2->Location = System::Drawing::Point(107, 13);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(125, 122);
 			this->panel2->TabIndex = 1;
@@ -261,6 +262,7 @@ namespace GSD {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F));
 			this->label3->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->label3->Location = System::Drawing::Point(1120, 739);
 			this->label3->Name = L"label3";
@@ -272,12 +274,14 @@ namespace GSD {
 			// 
 			this->label4->AutoSize = true;
 			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F));
 			this->label4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label4->Location = System::Drawing::Point(12, 739);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(71, 13);
 			this->label4->TabIndex = 12;
 			this->label4->Text = L"HNT Co. Ltd.";
+			this->label4->Click += gcnew System::EventHandler(this, &LoginForm::label4_Click);
 			// 
 			// LoginForm
 			// 
@@ -308,18 +312,25 @@ namespace GSD {
 
 		}
 #pragma endregion
+	public: User^ user = nullptr;
+	public: bool switchRegister = false;
+
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void button_login_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-}
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button_login_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+		this->switchRegister = true;
+		this->Close();
+	}
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }

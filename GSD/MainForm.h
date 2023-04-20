@@ -1,4 +1,6 @@
 #pragma once
+#include "User.h"
+#include "LoginForm.h"
 
 namespace GSD {
 
@@ -15,7 +17,7 @@ namespace GSD {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
-		MainForm(void)
+		MainForm(User^ user)
 		{
 			InitializeComponent();
 			//
