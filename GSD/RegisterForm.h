@@ -48,11 +48,17 @@ namespace GSD {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"RegisterForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// RegisterForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(733, 645);
+			this->Name = L"RegisterForm";
+			this->Text = L"RegisterForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
