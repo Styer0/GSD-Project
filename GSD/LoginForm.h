@@ -9,6 +9,7 @@ namespace GSD {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Summary for LoginForm
@@ -37,11 +38,15 @@ namespace GSD {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::TextBox^ username;
+	private: System::Windows::Forms::TextBox^ tbEmail;
+
+
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label_pass;
-	private: System::Windows::Forms::TextBox^ password;
+	private: System::Windows::Forms::TextBox^ tbPassword;
+
+
 	private: System::Windows::Forms::Label^ label_user;
 	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 	private: System::Windows::Forms::Button^ button_login;
@@ -79,10 +84,10 @@ namespace GSD {
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->button_login = (gcnew System::Windows::Forms::Button());
 			this->label_pass = (gcnew System::Windows::Forms::Label());
-			this->password = (gcnew System::Windows::Forms::TextBox());
+			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label_user = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->username = (gcnew System::Windows::Forms::TextBox());
+			this->tbEmail = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -100,16 +105,17 @@ namespace GSD {
 			this->panel1->Controls->Add(this->linkLabel1);
 			this->panel1->Controls->Add(this->button_login);
 			this->panel1->Controls->Add(this->label_pass);
-			this->panel1->Controls->Add(this->password);
+			this->panel1->Controls->Add(this->tbPassword);
 			this->panel1->Controls->Add(this->label_user);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Controls->Add(this->username);
+			this->panel1->Controls->Add(this->tbEmail);
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->panel1->Location = System::Drawing::Point(418, 79);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(340, 601);
 			this->panel1->TabIndex = 0;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &LoginForm::panel1_Paint);
 			// 
 			// panel4
 			// 
@@ -135,7 +141,7 @@ namespace GSD {
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(82, 568);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(131, 15);
+			this->label2->Size = System::Drawing::Size(163, 20);
 			this->label2->TabIndex = 8;
 			this->label2->Text = L"Don\'t have an account\?";
 			// 
@@ -148,7 +154,7 @@ namespace GSD {
 			this->linkLabel2->LinkColor = System::Drawing::Color::White;
 			this->linkLabel2->Location = System::Drawing::Point(209, 568);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(48, 15);
+			this->linkLabel2->Size = System::Drawing::Size(61, 20);
 			this->linkLabel2->TabIndex = 1;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Sign Up";
@@ -161,7 +167,7 @@ namespace GSD {
 			this->linkLabel1->LinkColor = System::Drawing::Color::LightGray;
 			this->linkLabel1->Location = System::Drawing::Point(202, 406);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(99, 13);
+			this->linkLabel1->Size = System::Drawing::Size(118, 19);
 			this->linkLabel1->TabIndex = 7;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Forgot Password\?";
@@ -178,6 +184,7 @@ namespace GSD {
 			this->button_login->TabIndex = 1;
 			this->button_login->Text = L"Login";
 			this->button_login->UseVisualStyleBackColor = false;
+			this->button_login->Click += gcnew System::EventHandler(this, &LoginForm::button_login_Click_1);
 			// 
 			// label_pass
 			// 
@@ -187,25 +194,25 @@ namespace GSD {
 			this->label_pass->ForeColor = System::Drawing::Color::White;
 			this->label_pass->Location = System::Drawing::Point(41, 341);
 			this->label_pass->Name = L"label_pass";
-			this->label_pass->Size = System::Drawing::Size(76, 21);
+			this->label_pass->Size = System::Drawing::Size(93, 28);
 			this->label_pass->TabIndex = 6;
 			this->label_pass->Text = L"Password";
 			// 
-			// password
+			// tbPassword
 			// 
-			this->password->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->password->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			this->tbPassword->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->password->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->password->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->password->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPassword->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password->ForeColor = System::Drawing::SystemColors::Window;
-			this->password->Location = System::Drawing::Point(45, 368);
-			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(255, 22);
-			this->password->TabIndex = 5;
-			this->password->UseSystemPasswordChar = true;
+			this->tbPassword->ForeColor = System::Drawing::SystemColors::Window;
+			this->tbPassword->Location = System::Drawing::Point(45, 368);
+			this->tbPassword->Name = L"tbPassword";
+			this->tbPassword->Size = System::Drawing::Size(255, 27);
+			this->tbPassword->TabIndex = 5;
+			this->tbPassword->UseSystemPasswordChar = true;
 			// 
 			// label_user
 			// 
@@ -215,9 +222,10 @@ namespace GSD {
 			this->label_user->ForeColor = System::Drawing::Color::White;
 			this->label_user->Location = System::Drawing::Point(41, 273);
 			this->label_user->Name = L"label_user";
-			this->label_user->Size = System::Drawing::Size(54, 21);
+			this->label_user->Size = System::Drawing::Size(68, 28);
 			this->label_user->TabIndex = 4;
 			this->label_user->Text = L"E-Mail";
+			this->label_user->Click += gcnew System::EventHandler(this, &LoginForm::label_user_Click);
 			// 
 			// label1
 			// 
@@ -227,26 +235,26 @@ namespace GSD {
 			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Location = System::Drawing::Point(116, 175);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(106, 47);
+			this->label1->Size = System::Drawing::Size(134, 60);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Login";
 			this->label1->Click += gcnew System::EventHandler(this, &LoginForm::label1_Click);
 			// 
-			// username
+			// tbEmail
 			// 
-			this->username->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->username->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			this->tbEmail->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbEmail->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->username->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->username->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->username->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tbEmail->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbEmail->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->tbEmail->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username->ForeColor = System::Drawing::SystemColors::Window;
-			this->username->Location = System::Drawing::Point(45, 300);
-			this->username->Name = L"username";
-			this->username->Size = System::Drawing::Size(255, 22);
-			this->username->TabIndex = 0;
-			this->username->TextChanged += gcnew System::EventHandler(this, &LoginForm::Username_TextChanged);
+			this->tbEmail->ForeColor = System::Drawing::SystemColors::Window;
+			this->tbEmail->Location = System::Drawing::Point(45, 300);
+			this->tbEmail->Name = L"tbEmail";
+			this->tbEmail->Size = System::Drawing::Size(255, 27);
+			this->tbEmail->TabIndex = 0;
+			this->tbEmail->TextChanged += gcnew System::EventHandler(this, &LoginForm::Username_TextChanged);
 			// 
 			// panel2
 			// 
@@ -266,7 +274,7 @@ namespace GSD {
 			this->label3->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->label3->Location = System::Drawing::Point(1120, 739);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(52, 13);
+			this->label3->Size = System::Drawing::Size(66, 19);
 			this->label3->TabIndex = 11;
 			this->label3->Text = L"Beta v1.0";
 			// 
@@ -278,19 +286,19 @@ namespace GSD {
 			this->label4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label4->Location = System::Drawing::Point(12, 739);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(71, 13);
+			this->label4->Size = System::Drawing::Size(87, 19);
 			this->label4->TabIndex = 12;
 			this->label4->Text = L"HNT Co. Ltd.";
 			this->label4->Click += gcnew System::EventHandler(this, &LoginForm::label4_Click);
 			// 
 			// LoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(1184, 761);
+			this->ClientSize = System::Drawing::Size(1182, 753);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->panel1);
@@ -332,5 +340,48 @@ namespace GSD {
 	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void label_user_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+	private: System::Void button_login_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		String^ email = this->tbEmail->Text;
+		String^ password = this->tbPassword->Text;
+
+		if (email->Length == 0 || password->Length == 0) {
+			MessageBox::Show("Please enter email and password", "Email or Password Empty", MessageBoxButtons::OK);
+			return;
+
+		}
+		try {
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=GSDData;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+			String^ sqlQuery = "SELECT * FROM users WHERE email=@email AND password=@pwd";
+			SqlCommand command(sqlQuery, % sqlConn);
+			command.Parameters->AddWithValue("@email", email);
+			command.Parameters->AddWithValue("@pwd", password);
+
+			SqlDataReader^ reader = command.ExecuteReader();
+			if (reader->Read()) {
+				user = gcnew User;
+				user->id = reader->GetInt32(0);
+				user->name = reader->GetString(1);
+				user->email = reader->GetString(2);
+				user->password = reader->GetString(3);
+
+				this->Close();
+			}
+
+			else {
+				MessageBox::Show("Email or password is incorrect", "Email of Password Error", MessageBoxButtons::OK);
+			}
+		}
+
+		catch (Exception^ e) {
+			MessageBox::Show("Failed to connect to database", "Database Connection Error", MessageBoxButtons::OK);
+		}
+}
 };
 }
