@@ -9,6 +9,8 @@ namespace GSD {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for RegisterForm
@@ -52,12 +54,15 @@ namespace GSD {
 	private: System::Windows::Forms::Label^ label_email;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Panel^ panel7;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ text_confirmPassword;
+
+
 	private: System::Windows::Forms::Label^ label2;
 
 	private: System::Windows::Forms::Panel^ panel5;
+	private: System::Windows::Forms::TextBox^ text_password;
 
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 
 	private: System::Windows::Forms::Button^ button_create;
 
@@ -89,10 +94,10 @@ namespace GSD {
 			this->button_create = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->text_confirmPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->text_password = (gcnew System::Windows::Forms::TextBox());
 			this->label_email = (gcnew System::Windows::Forms::Label());
 			this->label_name = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -114,10 +119,10 @@ namespace GSD {
 			this->panel1->Controls->Add(this->button_create);
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Controls->Add(this->panel7);
-			this->panel1->Controls->Add(this->textBox3);
+			this->panel1->Controls->Add(this->text_confirmPassword);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->panel5);
-			this->panel1->Controls->Add(this->textBox1);
+			this->panel1->Controls->Add(this->text_password);
 			this->panel1->Controls->Add(this->label_email);
 			this->panel1->Controls->Add(this->label_name);
 			this->panel1->Controls->Add(this->label1);
@@ -158,6 +163,7 @@ namespace GSD {
 			this->button_create->TabIndex = 23;
 			this->button_create->Text = L"Create Account";
 			this->button_create->UseVisualStyleBackColor = false;
+			this->button_create->Click += gcnew System::EventHandler(this, &RegisterForm::button_create_Click);
 			// 
 			// label4
 			// 
@@ -179,20 +185,21 @@ namespace GSD {
 			this->panel7->Size = System::Drawing::Size(255, 2);
 			this->panel7->TabIndex = 21;
 			// 
-			// textBox3
+			// text_confirmPassword
 			// 
-			this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->text_confirmPassword->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->text_confirmPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->text_confirmPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->text_confirmPassword->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->text_confirmPassword->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox3->Location = System::Drawing::Point(45, 422);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(255, 22);
-			this->textBox3->TabIndex = 20;
+			this->text_confirmPassword->ForeColor = System::Drawing::SystemColors::Window;
+			this->text_confirmPassword->Location = System::Drawing::Point(45, 422);
+			this->text_confirmPassword->Name = L"text_confirmPassword";
+			this->text_confirmPassword->Size = System::Drawing::Size(255, 22);
+			this->text_confirmPassword->TabIndex = 20;
+			this->text_confirmPassword->UseSystemPasswordChar = true;
 			// 
 			// label2
 			// 
@@ -214,20 +221,22 @@ namespace GSD {
 			this->panel5->Size = System::Drawing::Size(255, 2);
 			this->panel5->TabIndex = 17;
 			// 
-			// textBox1
+			// text_password
 			// 
-			this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			this->text_password->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->text_password->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->text_password->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->text_password->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->text_password->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox1->Location = System::Drawing::Point(45, 355);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(255, 22);
-			this->textBox1->TabIndex = 15;
+			this->text_password->ForeColor = System::Drawing::SystemColors::Window;
+			this->text_password->Location = System::Drawing::Point(45, 355);
+			this->text_password->Name = L"text_password";
+			this->text_password->Size = System::Drawing::Size(255, 22);
+			this->text_password->TabIndex = 15;
+			this->text_password->UseSystemPasswordChar = true;
+			this->text_password->TextChanged += gcnew System::EventHandler(this, &RegisterForm::text_password_TextChanged);
 			// 
 			// label_email
 			// 
@@ -376,5 +385,53 @@ namespace GSD {
 		this->switchLogin = true;
 		this->Close();
 	}
+
+	private: System::Void button_create_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ name = text_name->Text;
+		String^ email = text_email->Text;
+		String^ password = text_password->Text;
+		String^ confirmPassword = text_confirmPassword->Text;
+
+		if (name->Length == 0 || email->Length == 0 || password->Length == 0) {
+			MessageBox::Show("Please enter all fields", "One or more empty fields", MessageBoxButtons::OK);
+
+			return;
+		}
+
+		if (String::Compare(password, confirmPassword) != 0) {
+			MessageBox::Show("Password and Confirm Password do not match", "Password Error", MessageBoxButtons::OK);
+
+			return;
+		}
+
+		try {
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=GSDData;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+			String^ sqlQuery = "INSERT INTO users " + "(name, email, password) VALUES " + "(@name, @email, @password); ";
+
+			SqlCommand command(sqlQuery, % sqlConn);
+			command.Parameters->AddWithValue("@name", name);
+			command.Parameters->AddWithValue("@email", email);
+			command.Parameters->AddWithValue("@password", password);
+
+			command.ExecuteNonQuery();
+			user = gcnew User;
+			user->name = name;
+			user->email = email;
+			user->password = password;
+
+			this->Close();
+		}
+
+		catch (Exception^ ex) {
+			MessageBox::Show("Failed to register new user", "Register Failure", MessageBoxButtons::OK);
+		}
+	}
+
+private: System::Void text_password_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
