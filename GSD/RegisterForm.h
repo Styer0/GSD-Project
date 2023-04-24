@@ -67,8 +67,9 @@ namespace GSD {
 	private: System::Windows::Forms::Button^ button_create;
 
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Button^ Cancel;
+
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Button^ Cancel;
 
 
 
@@ -90,7 +91,6 @@ namespace GSD {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(RegisterForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Cancel = (gcnew System::Windows::Forms::Button());
 			this->button_create = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
@@ -108,6 +108,7 @@ namespace GSD {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->Cancel = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -136,19 +137,6 @@ namespace GSD {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(340, 601);
 			this->panel1->TabIndex = 1;
-			// 
-			// Cancel
-			// 
-			this->Cancel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cancel.BackgroundImage")));
-			this->Cancel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Cancel->FlatAppearance->BorderSize = 0;
-			this->Cancel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Cancel->Location = System::Drawing::Point(25, 31);
-			this->Cancel->Name = L"Cancel";
-			this->Cancel->Size = System::Drawing::Size(29, 27);
-			this->Cancel->TabIndex = 24;
-			this->Cancel->UseVisualStyleBackColor = true;
-			this->Cancel->Click += gcnew System::EventHandler(this, &RegisterForm::Cancel_Click);
 			// 
 			// button_create
 			// 
@@ -352,6 +340,19 @@ namespace GSD {
 			this->label3->Size = System::Drawing::Size(71, 13);
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"HNT Co. Ltd.";
+			// 
+			// Cancel
+			// 
+			this->Cancel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cancel.BackgroundImage")));
+			this->Cancel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->Cancel->FlatAppearance->BorderSize = 0;
+			this->Cancel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Cancel->Location = System::Drawing::Point(25, 31);
+			this->Cancel->Name = L"Cancel";
+			this->Cancel->Size = System::Drawing::Size(29, 27);
+			this->Cancel->TabIndex = 24;
+			this->Cancel->UseVisualStyleBackColor = true;
+			this->Cancel->Click += gcnew System::EventHandler(this, &RegisterForm::Cancel_Click);
 			// 
 			// RegisterForm
 			// 
