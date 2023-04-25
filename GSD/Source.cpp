@@ -35,6 +35,7 @@ void main(array<String^>^ args) {
 
 	if (user != nullptr) {
 		GSD::MainForm mainForm(user);
+		mainForm.user = user;
 		Application::Run(% mainForm);
 	}
 	else {

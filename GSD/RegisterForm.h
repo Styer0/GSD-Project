@@ -10,6 +10,7 @@ namespace GSD {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
+	using namespace System::IO;
 	using namespace std;
 
 	/// <summary>
@@ -423,7 +424,7 @@ namespace GSD {
 			user->name = name;
 			user->email = email;
 			user->password = password;
-
+			StreamWriter^ output_file = File::CreateText("user" + user->id + ".txt");
 			this->Close();
 		}
 
