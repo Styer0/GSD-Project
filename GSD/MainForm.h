@@ -94,6 +94,18 @@ namespace GSD {
 	private: System::Windows::Forms::Label^ label2;
 
 	private: System::Windows::Forms::Label^ lb_entry;
+	private: System::Windows::Forms::Panel^ p_cout;
+	private: System::Windows::Forms::Label^ cout_amount_label;
+	private: System::Windows::Forms::TextBox^ account_text;
+	private: System::Windows::Forms::Label^ account_label;
+
+
+	private: System::Windows::Forms::TextBox^ cout_text;
+	private: System::Windows::Forms::Button^ button_finish;
+
+
+
+
 
 
 
@@ -127,6 +139,14 @@ namespace GSD {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->lb_cash = (gcnew System::Windows::Forms::Label());
 			this->p_activity = (gcnew System::Windows::Forms::Panel());
+			this->pan_settings = (gcnew System::Windows::Forms::Panel());
+			this->pan_addlist = (gcnew System::Windows::Forms::Panel());
+			this->pan_home = (gcnew System::Windows::Forms::Panel());
+			this->lb_entry = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->lb_home = (gcnew System::Windows::Forms::Label());
+			this->lb_addlist = (gcnew System::Windows::Forms::Label());
+			this->lb_settings = (gcnew System::Windows::Forms::Label());
 			this->lb_activity = (gcnew System::Windows::Forms::Label());
 			this->lb_balance = (gcnew System::Windows::Forms::Label());
 			this->bottom_panel = (gcnew System::Windows::Forms::Panel());
@@ -147,21 +167,20 @@ namespace GSD {
 			this->cout_button = (gcnew System::Windows::Forms::Button());
 			this->cin_button = (gcnew System::Windows::Forms::Button());
 			this->top_panel = (gcnew System::Windows::Forms::Panel());
-			this->pan_settings = (gcnew System::Windows::Forms::Panel());
-			this->pan_addlist = (gcnew System::Windows::Forms::Panel());
-			this->pan_home = (gcnew System::Windows::Forms::Panel());
-			this->lb_entry = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->lb_home = (gcnew System::Windows::Forms::Label());
-			this->lb_addlist = (gcnew System::Windows::Forms::Label());
-			this->lb_settings = (gcnew System::Windows::Forms::Label());
+			this->p_cout = (gcnew System::Windows::Forms::Panel());
+			this->button_finish = (gcnew System::Windows::Forms::Button());
+			this->account_text = (gcnew System::Windows::Forms::TextBox());
+			this->account_label = (gcnew System::Windows::Forms::Label());
+			this->cout_text = (gcnew System::Windows::Forms::TextBox());
+			this->cout_amount_label = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->p_activity->SuspendLayout();
-			this->bottom_panel->SuspendLayout();
-			this->top_panel->SuspendLayout();
 			this->pan_settings->SuspendLayout();
 			this->pan_addlist->SuspendLayout();
 			this->pan_home->SuspendLayout();
+			this->bottom_panel->SuspendLayout();
+			this->top_panel->SuspendLayout();
+			this->p_cout->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -316,7 +335,7 @@ namespace GSD {
 			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Location = System::Drawing::Point(145, 737);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(52, 13);
+			this->label1->Size = System::Drawing::Size(66, 19);
 			this->label1->TabIndex = 14;
 			this->label1->Text = L"Beta v1.0";
 			// 
@@ -329,7 +348,7 @@ namespace GSD {
 			this->label4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label4->Location = System::Drawing::Point(3, 737);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(71, 13);
+			this->label4->Size = System::Drawing::Size(87, 19);
 			this->label4->TabIndex = 13;
 			this->label4->Text = L"HNT Co. Ltd.";
 			// 
@@ -352,7 +371,7 @@ namespace GSD {
 			this->lb_cash->Location = System::Drawing::Point(3, 10);
 			this->lb_cash->Name = L"lb_cash";
 			this->lb_cash->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->lb_cash->Size = System::Drawing::Size(206, 47);
+			this->lb_cash->Size = System::Drawing::Size(257, 60);
 			this->lb_cash->TabIndex = 38;
 			this->lb_cash->Text = L"Cash In/Out";
 			this->lb_cash->Visible = false;
@@ -371,6 +390,100 @@ namespace GSD {
 			this->p_activity->TabIndex = 39;
 			this->p_activity->Visible = false;
 			// 
+			// pan_settings
+			// 
+			this->pan_settings->Controls->Add(this->pan_home);
+			this->pan_settings->Controls->Add(this->pan_addlist);
+			this->pan_settings->Controls->Add(this->lb_settings);
+			this->pan_settings->Location = System::Drawing::Point(0, 0);
+			this->pan_settings->Name = L"pan_settings";
+			this->pan_settings->Size = System::Drawing::Size(985, 761);
+			this->pan_settings->TabIndex = 43;
+			// 
+			// pan_addlist
+			// 
+			this->pan_addlist->Controls->Add(this->lb_addlist);
+			this->pan_addlist->Location = System::Drawing::Point(3, 0);
+			this->pan_addlist->Name = L"pan_addlist";
+			this->pan_addlist->Size = System::Drawing::Size(985, 761);
+			this->pan_addlist->TabIndex = 44;
+			// 
+			// pan_home
+			// 
+			this->pan_home->Controls->Add(this->lb_entry);
+			this->pan_home->Controls->Add(this->label2);
+			this->pan_home->Controls->Add(this->lb_home);
+			this->pan_home->Location = System::Drawing::Point(3, 0);
+			this->pan_home->Name = L"pan_home";
+			this->pan_home->Size = System::Drawing::Size(985, 761);
+			this->pan_home->TabIndex = 45;
+			// 
+			// lb_entry
+			// 
+			this->lb_entry->Font = (gcnew System::Drawing::Font(L"Segoe UI", 15));
+			this->lb_entry->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->lb_entry->Location = System::Drawing::Point(15, 207);
+			this->lb_entry->Name = L"lb_entry";
+			this->lb_entry->Size = System::Drawing::Size(942, 508);
+			this->lb_entry->TabIndex = 39;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 22));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(11, 156);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(85, 50);
+			this->label2->TabIndex = 38;
+			this->label2->Text = L"List:";
+			// 
+			// lb_home
+			// 
+			this->lb_home->AutoSize = true;
+			this->lb_home->BackColor = System::Drawing::Color::Transparent;
+			this->lb_home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->lb_home->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_home->ForeColor = System::Drawing::Color::White;
+			this->lb_home->Location = System::Drawing::Point(10, 10);
+			this->lb_home->Name = L"lb_home";
+			this->lb_home->Size = System::Drawing::Size(143, 60);
+			this->lb_home->TabIndex = 37;
+			this->lb_home->Text = L"Home";
+			// 
+			// lb_addlist
+			// 
+			this->lb_addlist->AutoSize = true;
+			this->lb_addlist->BackColor = System::Drawing::Color::Transparent;
+			this->lb_addlist->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->lb_addlist->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_addlist->ForeColor = System::Drawing::Color::White;
+			this->lb_addlist->Location = System::Drawing::Point(10, 10);
+			this->lb_addlist->Name = L"lb_addlist";
+			this->lb_addlist->Size = System::Drawing::Size(183, 60);
+			this->lb_addlist->TabIndex = 37;
+			this->lb_addlist->Text = L"Add List";
+			this->lb_addlist->Visible = false;
+			// 
+			// lb_settings
+			// 
+			this->lb_settings->AutoSize = true;
+			this->lb_settings->BackColor = System::Drawing::Color::Transparent;
+			this->lb_settings->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->lb_settings->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_settings->ForeColor = System::Drawing::Color::White;
+			this->lb_settings->Location = System::Drawing::Point(10, 10);
+			this->lb_settings->Name = L"lb_settings";
+			this->lb_settings->Size = System::Drawing::Size(182, 60);
+			this->lb_settings->TabIndex = 37;
+			this->lb_settings->Text = L"Settings";
+			this->lb_settings->Visible = false;
+			// 
 			// lb_activity
 			// 
 			this->lb_activity->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -383,7 +496,7 @@ namespace GSD {
 			this->lb_activity->Location = System::Drawing::Point(65, 9);
 			this->lb_activity->Name = L"lb_activity";
 			this->lb_activity->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->lb_activity->Size = System::Drawing::Size(190, 37);
+			this->lb_activity->Size = System::Drawing::Size(233, 45);
 			this->lb_activity->TabIndex = 40;
 			this->lb_activity->Text = L"Recent Activity";
 			this->lb_activity->TextAlign = System::Drawing::ContentAlignment::TopRight;
@@ -399,7 +512,7 @@ namespace GSD {
 			this->lb_balance->Location = System::Drawing::Point(10, 119);
 			this->lb_balance->Name = L"lb_balance";
 			this->lb_balance->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->lb_balance->Size = System::Drawing::Size(115, 37);
+			this->lb_balance->Size = System::Drawing::Size(140, 45);
 			this->lb_balance->TabIndex = 41;
 			this->lb_balance->Text = L"Balance:";
 			this->lb_balance->Visible = false;
@@ -424,8 +537,6 @@ namespace GSD {
 			this->bottom_panel->Controls->Add(this->payment_label);
 			this->bottom_panel->Controls->Add(this->amount_text);
 			this->bottom_panel->Controls->Add(this->cin_amount_label);
-			this->bottom_panel->Controls->Add(this->cout_button);
-			this->bottom_panel->Controls->Add(this->cin_button);
 			this->bottom_panel->Location = System::Drawing::Point(0, 230);
 			this->bottom_panel->Name = L"bottom_panel";
 			this->bottom_panel->Size = System::Drawing::Size(661, 537);
@@ -448,7 +559,7 @@ namespace GSD {
 			this->cvv_text->BackColor = System::Drawing::Color::White;
 			this->cvv_text->Location = System::Drawing::Point(440, 198);
 			this->cvv_text->Name = L"cvv_text";
-			this->cvv_text->Size = System::Drawing::Size(56, 25);
+			this->cvv_text->Size = System::Drawing::Size(56, 29);
 			this->cvv_text->TabIndex = 14;
 			// 
 			// cvv_label
@@ -459,7 +570,7 @@ namespace GSD {
 			this->cvv_label->ForeColor = System::Drawing::Color::White;
 			this->cvv_label->Location = System::Drawing::Point(390, 204);
 			this->cvv_label->Name = L"cvv_label";
-			this->cvv_label->Size = System::Drawing::Size(36, 19);
+			this->cvv_label->Size = System::Drawing::Size(43, 23);
 			this->cvv_label->TabIndex = 13;
 			this->cvv_label->Text = L"CVV";
 			// 
@@ -471,7 +582,7 @@ namespace GSD {
 			this->slash_text->ForeColor = System::Drawing::Color::White;
 			this->slash_text->Location = System::Drawing::Point(194, 296);
 			this->slash_text->Name = L"slash_text";
-			this->slash_text->Size = System::Drawing::Size(19, 25);
+			this->slash_text->Size = System::Drawing::Size(23, 31);
 			this->slash_text->TabIndex = 12;
 			this->slash_text->Text = L"/";
 			// 
@@ -480,7 +591,7 @@ namespace GSD {
 			this->expDate2_text->BackColor = System::Drawing::Color::White;
 			this->expDate2_text->Location = System::Drawing::Point(218, 299);
 			this->expDate2_text->Name = L"expDate2_text";
-			this->expDate2_text->Size = System::Drawing::Size(56, 25);
+			this->expDate2_text->Size = System::Drawing::Size(56, 29);
 			this->expDate2_text->TabIndex = 11;
 			// 
 			// expDate1_text
@@ -488,7 +599,7 @@ namespace GSD {
 			this->expDate1_text->BackColor = System::Drawing::Color::White;
 			this->expDate1_text->Location = System::Drawing::Point(133, 299);
 			this->expDate1_text->Name = L"expDate1_text";
-			this->expDate1_text->Size = System::Drawing::Size(56, 25);
+			this->expDate1_text->Size = System::Drawing::Size(56, 29);
 			this->expDate1_text->TabIndex = 10;
 			// 
 			// expDate_label
@@ -499,7 +610,7 @@ namespace GSD {
 			this->expDate_label->ForeColor = System::Drawing::Color::White;
 			this->expDate_label->Location = System::Drawing::Point(13, 299);
 			this->expDate_label->Name = L"expDate_label";
-			this->expDate_label->Size = System::Drawing::Size(66, 19);
+			this->expDate_label->Size = System::Drawing::Size(82, 23);
 			this->expDate_label->TabIndex = 9;
 			this->expDate_label->Text = L"Exp. Date";
 			// 
@@ -508,7 +619,7 @@ namespace GSD {
 			this->cardName_text->BackColor = System::Drawing::Color::White;
 			this->cardName_text->Location = System::Drawing::Point(133, 250);
 			this->cardName_text->Name = L"cardName_text";
-			this->cardName_text->Size = System::Drawing::Size(209, 25);
+			this->cardName_text->Size = System::Drawing::Size(209, 29);
 			this->cardName_text->TabIndex = 8;
 			// 
 			// cardName_label
@@ -519,7 +630,7 @@ namespace GSD {
 			this->cardName_label->ForeColor = System::Drawing::Color::White;
 			this->cardName_label->Location = System::Drawing::Point(13, 250);
 			this->cardName_label->Name = L"cardName_label";
-			this->cardName_label->Size = System::Drawing::Size(78, 19);
+			this->cardName_label->Size = System::Drawing::Size(97, 23);
 			this->cardName_label->TabIndex = 7;
 			this->cardName_label->Text = L"Card Name";
 			// 
@@ -528,7 +639,7 @@ namespace GSD {
 			this->cardNum_text->BackColor = System::Drawing::Color::White;
 			this->cardNum_text->Location = System::Drawing::Point(133, 198);
 			this->cardNum_text->Name = L"cardNum_text";
-			this->cardNum_text->Size = System::Drawing::Size(209, 25);
+			this->cardNum_text->Size = System::Drawing::Size(209, 29);
 			this->cardNum_text->TabIndex = 6;
 			// 
 			// cardNum_label
@@ -539,7 +650,7 @@ namespace GSD {
 			this->cardNum_label->ForeColor = System::Drawing::Color::White;
 			this->cardNum_label->Location = System::Drawing::Point(13, 204);
 			this->cardNum_label->Name = L"cardNum_label";
-			this->cardNum_label->Size = System::Drawing::Size(92, 19);
+			this->cardNum_label->Size = System::Drawing::Size(114, 23);
 			this->cardNum_label->TabIndex = 5;
 			this->cardNum_label->Text = L"Card Number";
 			// 
@@ -551,7 +662,7 @@ namespace GSD {
 			this->payment_label->ForeColor = System::Drawing::Color::White;
 			this->payment_label->Location = System::Drawing::Point(13, 145);
 			this->payment_label->Name = L"payment_label";
-			this->payment_label->Size = System::Drawing::Size(156, 21);
+			this->payment_label->Size = System::Drawing::Size(195, 28);
 			this->payment_label->TabIndex = 4;
 			this->payment_label->Text = L"Payment Information";
 			// 
@@ -560,7 +671,7 @@ namespace GSD {
 			this->amount_text->BackColor = System::Drawing::Color::White;
 			this->amount_text->Location = System::Drawing::Point(172, 59);
 			this->amount_text->Name = L"amount_text";
-			this->amount_text->Size = System::Drawing::Size(122, 25);
+			this->amount_text->Size = System::Drawing::Size(122, 29);
 			this->amount_text->TabIndex = 3;
 			this->amount_text->Text = L"$";
 			this->amount_text->TextChanged += gcnew System::EventHandler(this, &MainForm::textBox1_TextChanged_1);
@@ -573,16 +684,17 @@ namespace GSD {
 			this->cin_amount_label->ForeColor = System::Drawing::Color::White;
 			this->cin_amount_label->Location = System::Drawing::Point(13, 59);
 			this->cin_amount_label->Name = L"cin_amount_label";
-			this->cin_amount_label->Size = System::Drawing::Size(123, 21);
+			this->cin_amount_label->Size = System::Drawing::Size(153, 28);
 			this->cin_amount_label->TabIndex = 2;
 			this->cin_amount_label->Text = L"Cash-In Amount";
 			// 
 			// cout_button
 			// 
+			this->cout_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->cout_button->ForeColor = System::Drawing::Color::White;
-			this->cout_button->Location = System::Drawing::Point(124, -1);
+			this->cout_button->Location = System::Drawing::Point(127, 188);
 			this->cout_button->Name = L"cout_button";
-			this->cout_button->Size = System::Drawing::Size(129, 26);
+			this->cout_button->Size = System::Drawing::Size(129, 33);
 			this->cout_button->TabIndex = 1;
 			this->cout_button->Text = L"Cash Out";
 			this->cout_button->UseVisualStyleBackColor = true;
@@ -591,10 +703,11 @@ namespace GSD {
 			// cin_button
 			// 
 			this->cin_button->BackColor = System::Drawing::Color::Transparent;
+			this->cin_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->cin_button->ForeColor = System::Drawing::Color::White;
-			this->cin_button->Location = System::Drawing::Point(-2, -1);
+			this->cin_button->Location = System::Drawing::Point(0, 188);
 			this->cin_button->Name = L"cin_button";
-			this->cin_button->Size = System::Drawing::Size(129, 26);
+			this->cin_button->Size = System::Drawing::Size(129, 33);
 			this->cin_button->TabIndex = 0;
 			this->cin_button->Text = L"Cash In";
 			this->cin_button->UseVisualStyleBackColor = false;
@@ -609,112 +722,87 @@ namespace GSD {
 			this->top_panel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"top_panel.BackgroundImage")));
 			this->top_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->top_panel->Controls->Add(this->pan_settings);
+			this->top_panel->Controls->Add(this->p_cout);
 			this->top_panel->Controls->Add(this->bottom_panel);
 			this->top_panel->Controls->Add(this->lb_balance);
 			this->top_panel->Controls->Add(this->p_activity);
 			this->top_panel->Controls->Add(this->lb_cash);
+			this->top_panel->Controls->Add(this->cin_button);
+			this->top_panel->Controls->Add(this->cout_button);
 			this->top_panel->Location = System::Drawing::Point(200, 0);
 			this->top_panel->Name = L"top_panel";
 			this->top_panel->Size = System::Drawing::Size(994, 766);
 			this->top_panel->TabIndex = 0;
 			// 
-			// pan_settings
+			// p_cout
 			// 
-			this->pan_settings->Controls->Add(this->pan_addlist);
-			this->pan_settings->Controls->Add(this->lb_settings);
-			this->pan_settings->Location = System::Drawing::Point(0, 0);
-			this->pan_settings->Name = L"pan_settings";
-			this->pan_settings->Size = System::Drawing::Size(985, 761);
-			this->pan_settings->TabIndex = 43;
+			this->p_cout->Controls->Add(this->button_finish);
+			this->p_cout->Controls->Add(this->account_text);
+			this->p_cout->Controls->Add(this->account_label);
+			this->p_cout->Controls->Add(this->cout_text);
+			this->p_cout->Controls->Add(this->cout_amount_label);
+			this->p_cout->Location = System::Drawing::Point(0, 227);
+			this->p_cout->Name = L"p_cout";
+			this->p_cout->Size = System::Drawing::Size(661, 540);
+			this->p_cout->TabIndex = 43;
 			// 
-			// pan_addlist
+			// button_finish
 			// 
-			this->pan_addlist->Controls->Add(this->pan_home);
-			this->pan_addlist->Controls->Add(this->lb_addlist);
-			this->pan_addlist->Location = System::Drawing::Point(0, 0);
-			this->pan_addlist->Name = L"pan_addlist";
-			this->pan_addlist->Size = System::Drawing::Size(985, 761);
-			this->pan_addlist->TabIndex = 44;
+			this->button_finish->BackColor = System::Drawing::Color::Transparent;
+			this->button_finish->ForeColor = System::Drawing::Color::White;
+			this->button_finish->Location = System::Drawing::Point(368, 219);
+			this->button_finish->Name = L"button_finish";
+			this->button_finish->Size = System::Drawing::Size(129, 26);
+			this->button_finish->TabIndex = 16;
+			this->button_finish->Text = L"Finish";
+			this->button_finish->UseVisualStyleBackColor = false;
+			this->button_finish->Click += gcnew System::EventHandler(this, &MainForm::button_finish_Click);
 			// 
-			// pan_home
+			// account_text
 			// 
-			this->pan_home->Controls->Add(this->lb_entry);
-			this->pan_home->Controls->Add(this->label2);
-			this->pan_home->Controls->Add(this->lb_home);
-			this->pan_home->Location = System::Drawing::Point(0, 0);
-			this->pan_home->Name = L"pan_home";
-			this->pan_home->Size = System::Drawing::Size(985, 761);
-			this->pan_home->TabIndex = 45;
+			this->account_text->BackColor = System::Drawing::Color::White;
+			this->account_text->Location = System::Drawing::Point(134, 113);
+			this->account_text->Name = L"account_text";
+			this->account_text->Size = System::Drawing::Size(122, 29);
+			this->account_text->TabIndex = 6;
+			this->account_text->TextChanged += gcnew System::EventHandler(this, &MainForm::textBox2_TextChanged);
 			// 
-			// lb_entry
+			// account_label
 			// 
-			this->lb_entry->Font = (gcnew System::Drawing::Font(L"Segoe UI", 15));
-			this->lb_entry->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->lb_entry->Location = System::Drawing::Point(15, 207);
-			this->lb_entry->Name = L"lb_entry";
-			this->lb_entry->Size = System::Drawing::Size(942, 508);
-			this->lb_entry->TabIndex = 39;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 22));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(11, 156);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(69, 41);
-			this->label2->TabIndex = 38;
-			this->label2->Text = L"List:";
-			// 
-			// lb_home
-			// 
-			this->lb_home->AutoSize = true;
-			this->lb_home->BackColor = System::Drawing::Color::Transparent;
-			this->lb_home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->lb_home->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->account_label->AutoSize = true;
+			this->account_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lb_home->ForeColor = System::Drawing::Color::White;
-			this->lb_home->Location = System::Drawing::Point(10, 10);
-			this->lb_home->Name = L"lb_home";
-			this->lb_home->Size = System::Drawing::Size(114, 47);
-			this->lb_home->TabIndex = 37;
-			this->lb_home->Text = L"Home";
+			this->account_label->ForeColor = System::Drawing::Color::White;
+			this->account_label->Location = System::Drawing::Point(14, 114);
+			this->account_label->Name = L"account_label";
+			this->account_label->Size = System::Drawing::Size(113, 28);
+			this->account_label->TabIndex = 5;
+			this->account_label->Text = L"To Account:";
 			// 
-			// lb_addlist
+			// cout_text
 			// 
-			this->lb_addlist->AutoSize = true;
-			this->lb_addlist->BackColor = System::Drawing::Color::Transparent;
-			this->lb_addlist->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->lb_addlist->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->cout_text->BackColor = System::Drawing::Color::White;
+			this->cout_text->Location = System::Drawing::Point(189, 58);
+			this->cout_text->Name = L"cout_text";
+			this->cout_text->Size = System::Drawing::Size(122, 29);
+			this->cout_text->TabIndex = 4;
+			this->cout_text->Text = L"$";
+			// 
+			// cout_amount_label
+			// 
+			this->cout_amount_label->AutoSize = true;
+			this->cout_amount_label->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lb_addlist->ForeColor = System::Drawing::Color::White;
-			this->lb_addlist->Location = System::Drawing::Point(10, 10);
-			this->lb_addlist->Name = L"lb_addlist";
-			this->lb_addlist->Size = System::Drawing::Size(146, 47);
-			this->lb_addlist->TabIndex = 37;
-			this->lb_addlist->Text = L"Add List";
-			this->lb_addlist->Visible = false;
-			// 
-			// lb_settings
-			// 
-			this->lb_settings->AutoSize = true;
-			this->lb_settings->BackColor = System::Drawing::Color::Transparent;
-			this->lb_settings->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->lb_settings->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lb_settings->ForeColor = System::Drawing::Color::White;
-			this->lb_settings->Location = System::Drawing::Point(10, 10);
-			this->lb_settings->Name = L"lb_settings";
-			this->lb_settings->Size = System::Drawing::Size(145, 47);
-			this->lb_settings->TabIndex = 37;
-			this->lb_settings->Text = L"Settings";
-			this->lb_settings->Visible = false;
+			this->cout_amount_label->ForeColor = System::Drawing::Color::White;
+			this->cout_amount_label->Location = System::Drawing::Point(13, 59);
+			this->cout_amount_label->Name = L"cout_amount_label";
+			this->cout_amount_label->Size = System::Drawing::Size(170, 28);
+			this->cout_amount_label->TabIndex = 0;
+			this->cout_amount_label->Text = L"Cash-Out Amount";
 			// 
 			// MainForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 21);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(1184, 761);
@@ -732,16 +820,18 @@ namespace GSD {
 			this->panel1->PerformLayout();
 			this->p_activity->ResumeLayout(false);
 			this->p_activity->PerformLayout();
-			this->bottom_panel->ResumeLayout(false);
-			this->bottom_panel->PerformLayout();
-			this->top_panel->ResumeLayout(false);
-			this->top_panel->PerformLayout();
 			this->pan_settings->ResumeLayout(false);
 			this->pan_settings->PerformLayout();
 			this->pan_addlist->ResumeLayout(false);
 			this->pan_addlist->PerformLayout();
 			this->pan_home->ResumeLayout(false);
 			this->pan_home->PerformLayout();
+			this->bottom_panel->ResumeLayout(false);
+			this->bottom_panel->PerformLayout();
+			this->top_panel->ResumeLayout(false);
+			this->top_panel->PerformLayout();
+			this->p_cout->ResumeLayout(false);
+			this->p_cout->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -878,41 +968,22 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		//Finish ~ Visible
 		this->finish_button->Visible = true;
 
+		//Cash-Out Panel ~ Invisible
+		this->p_cout->Visible = false;
+
 		
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		//Cash-In Amount ~ Invisible
-		this->cin_amount_label->Visible = false;
-		//Amount Box ~ Invisible
-		this->amount_text->Visible = false;
-		//Payment Information ~ Invisible
-		this->payment_label->Visible = false;
-		//Card Number ~ Invisible
-		this->cardNum_label->Visible = false;
-		//Card Number Text ~ Invisible
-		this->cardNum_text->Visible = false;
-		//Card Name ~ Invisible
-		this->cardName_label->Visible = false;
-		//Card Name Text ~ Invisible
-		this->cardName_text->Visible = false;
-		//Exp. Date ~ Invisible
-		this->expDate_label->Visible = false;
-		//Exp. Date Text 1 ~ Invisible
-		this->expDate1_text->Visible = false;
-		//Slash ~ Invisible
-		this->slash_text->Visible = false;
-		//Exp. Date Text 2 ~ Invisible
-		this->expDate2_text->Visible = false;
-		//CVV ~ Invisible
-		this->cvv_label->Visible = false;
-		//CVV Text ~ Invisible
-		this->cvv_text->Visible = false;
-		//Finish ~ Invisible
-		this->finish_button->Visible = false;
+		//Cash-Out Panel ~ Visible
+		this->p_cout->Visible = true;
 
 }
 	private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void button_finish_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
