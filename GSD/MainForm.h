@@ -477,7 +477,7 @@ private: System::Windows::Forms::Label^ label12;
 			this->pan_home_sub->Controls->Add(this->pan_image);
 			this->pan_home_sub->Controls->Add(this->tb_submit2);
 			this->pan_home_sub->Controls->Add(this->label9);
-			this->pan_home_sub->Location = System::Drawing::Point(-1, 0);
+			this->pan_home_sub->Location = System::Drawing::Point(0, 0);
 			this->pan_home_sub->Name = L"pan_home_sub";
 			this->pan_home_sub->Size = System::Drawing::Size(985, 761);
 			this->pan_home_sub->TabIndex = 46;
@@ -502,6 +502,9 @@ private: System::Windows::Forms::Label^ label12;
 			// 
 			// button3
 			// 
+			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
 			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button3->FlatAppearance->BorderSize = 0;
@@ -573,12 +576,16 @@ private: System::Windows::Forms::Label^ label12;
 			// 
 			// pan_home
 			// 
+			this->pan_home->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->pan_home->Controls->Add(this->pan_home_sub);
 			this->pan_home->Controls->Add(this->button2);
 			this->pan_home->Controls->Add(this->bu_submit);
 			this->pan_home->Controls->Add(this->lb_entry);
 			this->pan_home->Controls->Add(this->label2);
 			this->pan_home->Controls->Add(this->lb_home);
-			this->pan_home->Location = System::Drawing::Point(-1, 0);
+			this->pan_home->Location = System::Drawing::Point(0, 0);
 			this->pan_home->Name = L"pan_home";
 			this->pan_home->Size = System::Drawing::Size(985, 761);
 			this->pan_home->TabIndex = 45;
@@ -692,7 +699,9 @@ private: System::Windows::Forms::Label^ label12;
 			// 
 			// pan_settings
 			// 
-			this->pan_settings->Controls->Add(this->pan_home_sub);
+			this->pan_settings->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->pan_settings->Controls->Add(this->pan_addlist);
 			this->pan_settings->Controls->Add(this->lb_settings);
 			this->pan_settings->Location = System::Drawing::Point(0, 0);
@@ -702,6 +711,9 @@ private: System::Windows::Forms::Label^ label12;
 			// 
 			// pan_addlist
 			// 
+			this->pan_addlist->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->pan_addlist->Controls->Add(this->pan_home);
 			this->pan_addlist->Controls->Add(this->label11);
 			this->pan_addlist->Controls->Add(this->label10);
@@ -710,7 +722,7 @@ private: System::Windows::Forms::Label^ label12;
 			this->pan_addlist->Controls->Add(this->tx_submit_add);
 			this->pan_addlist->Controls->Add(this->tb_entry_insert);
 			this->pan_addlist->Controls->Add(this->lb_addlist);
-			this->pan_addlist->Location = System::Drawing::Point(1, 0);
+			this->pan_addlist->Location = System::Drawing::Point(0, 0);
 			this->pan_addlist->Name = L"pan_addlist";
 			this->pan_addlist->Size = System::Drawing::Size(985, 761);
 			this->pan_addlist->TabIndex = 44;
@@ -1121,7 +1133,7 @@ private: System::Windows::Forms::Label^ label12;
 			this->label12->Size = System::Drawing::Size(98, 37);
 			this->label12->TabIndex = 44;
 			this->label12->Text = L"$10.00";
-			this->label12->Visible = false;
+			this->label12->Visible = true;
 			// 
 			// MainForm
 			// 
