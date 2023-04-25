@@ -25,6 +25,14 @@ namespace GSD {
 			//TODO: Add the constructor code here
 			//
 			lbUser->Text = "Welcome, " + user->name;
+
+			StreamReader^ entry = File::OpenText("user" + user->id + ".txt");
+			String^ line = "";
+			int inc = 1;
+			while ((line = entry->ReadLine()) != nullptr) {
+				lb_entry->Text += inc + ". " + line + "\n";
+				++inc;
+			}
 		}
 
 	protected:
@@ -84,7 +92,7 @@ namespace GSD {
 
 	private: System::Windows::Forms::Label^ lb_home;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ bt_viewlist;
+
 	private: System::Windows::Forms::Label^ lb_entry;
 
 
@@ -144,7 +152,6 @@ namespace GSD {
 			this->pan_home = (gcnew System::Windows::Forms::Panel());
 			this->lb_entry = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->bt_viewlist = (gcnew System::Windows::Forms::Button());
 			this->lb_home = (gcnew System::Windows::Forms::Label());
 			this->lb_addlist = (gcnew System::Windows::Forms::Label());
 			this->lb_settings = (gcnew System::Windows::Forms::Label());
@@ -633,7 +640,6 @@ namespace GSD {
 			// 
 			this->pan_home->Controls->Add(this->lb_entry);
 			this->pan_home->Controls->Add(this->label2);
-			this->pan_home->Controls->Add(this->bt_viewlist);
 			this->pan_home->Controls->Add(this->lb_home);
 			this->pan_home->Location = System::Drawing::Point(0, 0);
 			this->pan_home->Name = L"pan_home";
@@ -644,7 +650,7 @@ namespace GSD {
 			// 
 			this->lb_entry->Font = (gcnew System::Drawing::Font(L"Segoe UI", 15));
 			this->lb_entry->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->lb_entry->Location = System::Drawing::Point(15, 226);
+			this->lb_entry->Location = System::Drawing::Point(15, 207);
 			this->lb_entry->Name = L"lb_entry";
 			this->lb_entry->Size = System::Drawing::Size(942, 508);
 			this->lb_entry->TabIndex = 39;
@@ -661,18 +667,6 @@ namespace GSD {
 			this->label2->Size = System::Drawing::Size(69, 41);
 			this->label2->TabIndex = 38;
 			this->label2->Text = L"List:";
-			// 
-			// bt_viewlist
-			// 
-			this->bt_viewlist->BackColor = System::Drawing::Color::White;
-			this->bt_viewlist->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->bt_viewlist->Location = System::Drawing::Point(80, 156);
-			this->bt_viewlist->Name = L"bt_viewlist";
-			this->bt_viewlist->Size = System::Drawing::Size(90, 41);
-			this->bt_viewlist->TabIndex = 2;
-			this->bt_viewlist->Text = L"View List";
-			this->bt_viewlist->UseVisualStyleBackColor = false;
-			this->bt_viewlist->Click += gcnew System::EventHandler(this, &MainForm::bt_viewlist_Click);
 			// 
 			// lb_home
 			// 
@@ -918,17 +912,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		this->finish_button->Visible = false;
 
 }
-private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-}
-	private: System::Void bt_viewlist_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		StreamReader^ entry = File::OpenText("user" + user->id + ".txt");
-		String^ line = "";
-		int inc = 1;
-		while ((line = entry->ReadLine()) != nullptr) {
-			lb_entry->Text += inc + ". " + line + "\n";
-			++inc;
-		}
+	private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
