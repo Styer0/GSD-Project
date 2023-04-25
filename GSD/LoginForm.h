@@ -340,10 +340,10 @@ namespace GSD {
 	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label_user_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
+	private: System::Void label_user_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
 	private: System::Void button_login_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		String^ email = this->tbEmail->Text;
 		String^ password = this->tbPassword->Text;
@@ -382,6 +382,6 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 		catch (Exception^ e) {
 			MessageBox::Show("Failed to connect to database", "Database Connection Error", MessageBoxButtons::OK);
 		}
-}
+	}
 };
 }

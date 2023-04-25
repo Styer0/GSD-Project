@@ -10,6 +10,8 @@ namespace GSD {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MainForm
@@ -65,6 +67,9 @@ namespace GSD {
 	private: System::Windows::Forms::Label^ lb_addlist;
 	private: System::Windows::Forms::Label^ lb_home;
 
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label2;
+
 
 
 
@@ -101,6 +106,8 @@ namespace GSD {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->lb_cash = (gcnew System::Windows::Forms::Label());
 			this->lb_settings = (gcnew System::Windows::Forms::Label());
 			this->lb_addlist = (gcnew System::Windows::Forms::Label());
@@ -293,6 +300,8 @@ namespace GSD {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel3->BackColor = System::Drawing::Color::Transparent;
 			this->panel3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel3.BackgroundImage")));
+			this->panel3->Controls->Add(this->label2);
+			this->panel3->Controls->Add(this->button1);
 			this->panel3->Controls->Add(this->lb_cash);
 			this->panel3->Controls->Add(this->lb_settings);
 			this->panel3->Controls->Add(this->lb_addlist);
@@ -301,6 +310,27 @@ namespace GSD {
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(994, 766);
 			this->panel3->TabIndex = 0;
+			// 
+			// label2
+			// 
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->label2->Location = System::Drawing::Point(48, 252);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(848, 330);
+			this->label2->TabIndex = 40;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(16, 69);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 39;
+			this->button1->Text = L"Show List";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// lb_cash
 			// 
@@ -382,6 +412,7 @@ namespace GSD {
 
 		}
 #pragma endregion
+	public: User^ user = nullptr;
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void buLogout_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -400,6 +431,7 @@ namespace GSD {
 		this->lb_cash->Visible = false;
 		//Settings ~ Invisible
 		this->lb_settings->Visible = false;
+
 	}
 	private: System::Void bu_AddList_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Home ~ Invisible
@@ -431,5 +463,14 @@ namespace GSD {
 		//Settings ~ Visible
 		this->lb_settings->Visible = true;
 	}
-};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		StreamReader^ input_file = File::OpenText("user" + user->id + ".txt");
+		String^ line;
+
+		while ((line = input_file->ReadLine()) != nullptr) {
+			label2->Text += line + "\n";
+		}
+	}
+	};
 }
