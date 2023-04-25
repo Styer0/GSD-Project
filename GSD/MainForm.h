@@ -24,6 +24,10 @@ namespace GSD {
 			//
 			//TODO: Add the constructor code here
 			//
+			if (!File::Exists("user" + user->id + ".txt")) {
+				StreamWriter^ create = File::CreateText("user" + user->id + ".txt");
+			}
+
 			lbUser->Text = "Welcome, " + user->name;
 
 			StreamReader^ entry = File::OpenText("user" + user->id + ".txt");
