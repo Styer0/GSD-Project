@@ -424,7 +424,6 @@ namespace GSD {
 			user->name = name;
 			user->email = email;
 			user->password = password;
-			StreamWriter^ output_file = File::CreateText("user" + user->id + ".txt");
 			this->Close();
 		}
 

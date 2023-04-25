@@ -26,6 +26,7 @@ namespace GSD {
 			//
 			if (!File::Exists("user" + user->id + ".txt")) {
 				StreamWriter^ create = File::CreateText("user" + user->id + ".txt");
+				create->Close();
 			}
 
 			lbUser->Text = "Welcome, " + user->name;
