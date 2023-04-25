@@ -128,6 +128,7 @@ private: System::Windows::Forms::TextBox^ tb_deadline;
 private: System::Windows::Forms::Label^ label11;
 
 private: System::Windows::Forms::Button^ button2;
+private: System::Windows::Forms::Label^ label12;
 
 	private:
 		/// <summary>
@@ -144,15 +145,6 @@ private: System::Windows::Forms::Button^ button2;
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->pan_home_sub = (gcnew System::Windows::Forms::Panel());
-			this->lb_sube = (gcnew System::Windows::Forms::Label());
-			this->tb_taskno = (gcnew System::Windows::Forms::TextBox());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->Cancel = (gcnew System::Windows::Forms::Button());
-			this->pan_image = (gcnew System::Windows::Forms::Panel());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->tb_submit2 = (gcnew System::Windows::Forms::Button());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->bu_Settings = (gcnew System::Windows::Forms::Button());
 			this->panel6 = (gcnew System::Windows::Forms::Panel());
@@ -171,6 +163,15 @@ private: System::Windows::Forms::Button^ button2;
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->pan_home_sub = (gcnew System::Windows::Forms::Panel());
+			this->lb_sube = (gcnew System::Windows::Forms::Label());
+			this->tb_taskno = (gcnew System::Windows::Forms::TextBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->Cancel = (gcnew System::Windows::Forms::Button());
+			this->pan_image = (gcnew System::Windows::Forms::Panel());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->tb_submit2 = (gcnew System::Windows::Forms::Button());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->pan_home = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->bu_submit = (gcnew System::Windows::Forms::Button());
@@ -215,11 +216,12 @@ private: System::Windows::Forms::Button^ button2;
 			this->account_label = (gcnew System::Windows::Forms::Label());
 			this->cout_text = (gcnew System::Windows::Forms::TextBox());
 			this->cout_amount_label = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
-			this->pan_home_sub->SuspendLayout();
-			this->pan_image->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->panel3->SuspendLayout();
+			this->pan_home_sub->SuspendLayout();
+			this->pan_image->SuspendLayout();
 			this->pan_home->SuspendLayout();
 			this->p_activity->SuspendLayout();
 			this->pan_settings->SuspendLayout();
@@ -253,109 +255,6 @@ private: System::Windows::Forms::Button^ button2;
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(200, 769);
 			this->panel1->TabIndex = 1;
-			// 
-			// pan_home_sub
-			// 
-			this->pan_home_sub->Controls->Add(this->lb_sube);
-			this->pan_home_sub->Controls->Add(this->tb_taskno);
-			this->pan_home_sub->Controls->Add(this->button3);
-			this->pan_home_sub->Controls->Add(this->Cancel);
-			this->pan_home_sub->Controls->Add(this->pan_image);
-			this->pan_home_sub->Controls->Add(this->tb_submit2);
-			this->pan_home_sub->Controls->Add(this->label9);
-			this->pan_home_sub->Location = System::Drawing::Point(0, 0);
-			this->pan_home_sub->Name = L"pan_home_sub";
-			this->pan_home_sub->Size = System::Drawing::Size(985, 761);
-			this->pan_home_sub->TabIndex = 46;
-			this->pan_home_sub->Visible = false;
-			// 
-			// lb_sube
-			// 
-			this->lb_sube->AutoSize = true;
-			this->lb_sube->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->lb_sube->Location = System::Drawing::Point(17, 210);
-			this->lb_sube->Name = L"lb_sube";
-			this->lb_sube->Size = System::Drawing::Size(167, 17);
-			this->lb_sube->TabIndex = 45;
-			this->lb_sube->Text = L"Enter Specify Task Number:";
-			// 
-			// tb_taskno
-			// 
-			this->tb_taskno->Location = System::Drawing::Point(43, 236);
-			this->tb_taskno->Name = L"tb_taskno";
-			this->tb_taskno->Size = System::Drawing::Size(104, 25);
-			this->tb_taskno->TabIndex = 44;
-			// 
-			// button3
-			// 
-			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
-			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Location = System::Drawing::Point(453, 672);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(40, 40);
-			this->button3->TabIndex = 43;
-			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// Cancel
-			// 
-			this->Cancel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cancel.BackgroundImage")));
-			this->Cancel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Cancel->FlatAppearance->BorderSize = 0;
-			this->Cancel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Cancel->Location = System::Drawing::Point(21, 134);
-			this->Cancel->Name = L"Cancel";
-			this->Cancel->Size = System::Drawing::Size(35, 35);
-			this->Cancel->TabIndex = 42;
-			this->Cancel->UseVisualStyleBackColor = true;
-			this->Cancel->Click += gcnew System::EventHandler(this, &MainForm::Cancel_Click);
-			// 
-			// pan_image
-			// 
-			this->pan_image->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pan_image->Controls->Add(this->label7);
-			this->pan_image->ForeColor = System::Drawing::Color::Transparent;
-			this->pan_image->Location = System::Drawing::Point(226, 134);
-			this->pan_image->Name = L"pan_image";
-			this->pan_image->Size = System::Drawing::Size(490, 490);
-			this->pan_image->TabIndex = 41;
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->label7->Location = System::Drawing::Point(189, 241);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(109, 17);
-			this->label7->TabIndex = 44;
-			this->label7->Text = L"Upload an Image";
-			// 
-			// tb_submit2
-			// 
-			this->tb_submit2->BackColor = System::Drawing::Color::White;
-			this->tb_submit2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->tb_submit2->Location = System::Drawing::Point(815, 666);
-			this->tb_submit2->Name = L"tb_submit2";
-			this->tb_submit2->Size = System::Drawing::Size(142, 53);
-			this->tb_submit2->TabIndex = 40;
-			this->tb_submit2->Text = L"Submit";
-			this->tb_submit2->UseVisualStyleBackColor = false;
-			this->tb_submit2->Click += gcnew System::EventHandler(this, &MainForm::tb_submit2_Click);
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::Transparent;
-			this->label9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::White;
-			this->label9->Location = System::Drawing::Point(10, 10);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(268, 47);
-			this->label9->TabIndex = 37;
-			this->label9->Text = L"Home > Submit";
 			// 
 			// panel7
 			// 
@@ -569,15 +468,117 @@ private: System::Windows::Forms::Button^ button2;
 			this->label6->TabIndex = 37;
 			this->label6->Text = L"Home";
 			// 
+			// pan_home_sub
+			// 
+			this->pan_home_sub->Controls->Add(this->lb_sube);
+			this->pan_home_sub->Controls->Add(this->tb_taskno);
+			this->pan_home_sub->Controls->Add(this->button3);
+			this->pan_home_sub->Controls->Add(this->Cancel);
+			this->pan_home_sub->Controls->Add(this->pan_image);
+			this->pan_home_sub->Controls->Add(this->tb_submit2);
+			this->pan_home_sub->Controls->Add(this->label9);
+			this->pan_home_sub->Location = System::Drawing::Point(-1, 0);
+			this->pan_home_sub->Name = L"pan_home_sub";
+			this->pan_home_sub->Size = System::Drawing::Size(985, 761);
+			this->pan_home_sub->TabIndex = 46;
+			this->pan_home_sub->Visible = false;
+			// 
+			// lb_sube
+			// 
+			this->lb_sube->AutoSize = true;
+			this->lb_sube->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->lb_sube->Location = System::Drawing::Point(17, 210);
+			this->lb_sube->Name = L"lb_sube";
+			this->lb_sube->Size = System::Drawing::Size(167, 17);
+			this->lb_sube->TabIndex = 45;
+			this->lb_sube->Text = L"Enter Specify Task Number:";
+			// 
+			// tb_taskno
+			// 
+			this->tb_taskno->Location = System::Drawing::Point(43, 236);
+			this->tb_taskno->Name = L"tb_taskno";
+			this->tb_taskno->Size = System::Drawing::Size(104, 25);
+			this->tb_taskno->TabIndex = 44;
+			// 
+			// button3
+			// 
+			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
+			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Location = System::Drawing::Point(453, 672);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(40, 40);
+			this->button3->TabIndex = 43;
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// Cancel
+			// 
+			this->Cancel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Cancel.BackgroundImage")));
+			this->Cancel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->Cancel->FlatAppearance->BorderSize = 0;
+			this->Cancel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Cancel->Location = System::Drawing::Point(21, 134);
+			this->Cancel->Name = L"Cancel";
+			this->Cancel->Size = System::Drawing::Size(35, 35);
+			this->Cancel->TabIndex = 42;
+			this->Cancel->UseVisualStyleBackColor = true;
+			this->Cancel->Click += gcnew System::EventHandler(this, &MainForm::Cancel_Click);
+			// 
+			// pan_image
+			// 
+			this->pan_image->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pan_image->Controls->Add(this->label7);
+			this->pan_image->ForeColor = System::Drawing::Color::Transparent;
+			this->pan_image->Location = System::Drawing::Point(226, 134);
+			this->pan_image->Name = L"pan_image";
+			this->pan_image->Size = System::Drawing::Size(490, 490);
+			this->pan_image->TabIndex = 41;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->label7->Location = System::Drawing::Point(189, 241);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(109, 17);
+			this->label7->TabIndex = 44;
+			this->label7->Text = L"Upload an Image";
+			// 
+			// tb_submit2
+			// 
+			this->tb_submit2->BackColor = System::Drawing::Color::White;
+			this->tb_submit2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->tb_submit2->Location = System::Drawing::Point(815, 666);
+			this->tb_submit2->Name = L"tb_submit2";
+			this->tb_submit2->Size = System::Drawing::Size(142, 53);
+			this->tb_submit2->TabIndex = 40;
+			this->tb_submit2->Text = L"Submit";
+			this->tb_submit2->UseVisualStyleBackColor = false;
+			this->tb_submit2->Click += gcnew System::EventHandler(this, &MainForm::tb_submit2_Click);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::Color::Transparent;
+			this->label9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->ForeColor = System::Drawing::Color::White;
+			this->label9->Location = System::Drawing::Point(10, 10);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(268, 47);
+			this->label9->TabIndex = 37;
+			this->label9->Text = L"Home > Submit";
+			// 
 			// pan_home
 			// 
-			this->pan_home->Controls->Add(this->pan_home_sub);
 			this->pan_home->Controls->Add(this->button2);
 			this->pan_home->Controls->Add(this->bu_submit);
 			this->pan_home->Controls->Add(this->lb_entry);
 			this->pan_home->Controls->Add(this->label2);
 			this->pan_home->Controls->Add(this->lb_home);
-			this->pan_home->Location = System::Drawing::Point(0, 0);
+			this->pan_home->Location = System::Drawing::Point(-1, 0);
 			this->pan_home->Name = L"pan_home";
 			this->pan_home->Size = System::Drawing::Size(985, 761);
 			this->pan_home->TabIndex = 45;
@@ -691,6 +692,7 @@ private: System::Windows::Forms::Button^ button2;
 			// 
 			// pan_settings
 			// 
+			this->pan_settings->Controls->Add(this->pan_home_sub);
 			this->pan_settings->Controls->Add(this->pan_addlist);
 			this->pan_settings->Controls->Add(this->lb_settings);
 			this->pan_settings->Location = System::Drawing::Point(0, 0);
@@ -708,7 +710,7 @@ private: System::Windows::Forms::Button^ button2;
 			this->pan_addlist->Controls->Add(this->tx_submit_add);
 			this->pan_addlist->Controls->Add(this->tb_entry_insert);
 			this->pan_addlist->Controls->Add(this->lb_addlist);
-			this->pan_addlist->Location = System::Drawing::Point(0, 0);
+			this->pan_addlist->Location = System::Drawing::Point(1, 0);
 			this->pan_addlist->Name = L"pan_addlist";
 			this->pan_addlist->Size = System::Drawing::Size(985, 761);
 			this->pan_addlist->TabIndex = 44;
@@ -996,7 +998,7 @@ private: System::Windows::Forms::Button^ button2;
 			// 
 			this->cout_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->cout_button->ForeColor = System::Drawing::Color::White;
-			this->cout_button->Location = System::Drawing::Point(127, 188);
+			this->cout_button->Location = System::Drawing::Point(127, 197);
 			this->cout_button->Name = L"cout_button";
 			this->cout_button->Size = System::Drawing::Size(129, 33);
 			this->cout_button->TabIndex = 1;
@@ -1009,7 +1011,7 @@ private: System::Windows::Forms::Button^ button2;
 			this->cin_button->BackColor = System::Drawing::Color::Transparent;
 			this->cin_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->cin_button->ForeColor = System::Drawing::Color::White;
-			this->cin_button->Location = System::Drawing::Point(0, 188);
+			this->cin_button->Location = System::Drawing::Point(0, 197);
 			this->cin_button->Name = L"cin_button";
 			this->cin_button->Size = System::Drawing::Size(129, 33);
 			this->cin_button->TabIndex = 0;
@@ -1026,6 +1028,7 @@ private: System::Windows::Forms::Button^ button2;
 			this->top_panel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"top_panel.BackgroundImage")));
 			this->top_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->top_panel->Controls->Add(this->pan_settings);
+			this->top_panel->Controls->Add(this->label12);
 			this->top_panel->Controls->Add(this->p_cout);
 			this->top_panel->Controls->Add(this->bottom_panel);
 			this->top_panel->Controls->Add(this->lb_balance);
@@ -1040,12 +1043,13 @@ private: System::Windows::Forms::Button^ button2;
 			// 
 			// p_cout
 			// 
+			this->p_cout->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->p_cout->Controls->Add(this->button_finish);
 			this->p_cout->Controls->Add(this->account_text);
 			this->p_cout->Controls->Add(this->account_label);
 			this->p_cout->Controls->Add(this->cout_text);
 			this->p_cout->Controls->Add(this->cout_amount_label);
-			this->p_cout->Location = System::Drawing::Point(0, 227);
+			this->p_cout->Location = System::Drawing::Point(0, 230);
 			this->p_cout->Name = L"p_cout";
 			this->p_cout->Size = System::Drawing::Size(661, 540);
 			this->p_cout->TabIndex = 43;
@@ -1104,6 +1108,21 @@ private: System::Windows::Forms::Button^ button2;
 			this->cout_amount_label->TabIndex = 0;
 			this->cout_amount_label->Text = L"Cash-Out Amount";
 			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Segoe UI", 19.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->ForeColor = System::Drawing::Color::YellowGreen;
+			this->label12->Location = System::Drawing::Point(116, 119);
+			this->label12->Name = L"label12";
+			this->label12->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->label12->Size = System::Drawing::Size(98, 37);
+			this->label12->TabIndex = 44;
+			this->label12->Text = L"$10.00";
+			this->label12->Visible = false;
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 17);
@@ -1122,13 +1141,13 @@ private: System::Windows::Forms::Button^ button2;
 			this->Text = L"Home";
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
 			this->pan_home_sub->ResumeLayout(false);
 			this->pan_home_sub->PerformLayout();
 			this->pan_image->ResumeLayout(false);
 			this->pan_image->PerformLayout();
-			this->panel2->ResumeLayout(false);
-			this->panel3->ResumeLayout(false);
-			this->panel3->PerformLayout();
 			this->pan_home->ResumeLayout(false);
 			this->pan_home->PerformLayout();
 			this->p_activity->ResumeLayout(false);
